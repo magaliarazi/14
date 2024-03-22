@@ -1,0 +1,23 @@
+body{
+    background-color: #FF33F3;
+}
+
+h1{
+    font-size: 100px;
+    color: yellow;
+}
+p{
+    color: green;
+}
+#encabezado{
+    background-color: aquamarine;
+    color: #FF33F3;
+}
+
+.ji{
+    color:blueviolet;
+}
+
+p2{
+    font-family: Arial, Helvetica, sans-serif
+}
