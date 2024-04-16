@@ -145,6 +145,7 @@ li {
   margin: 5% 16% 5% 16%;  
   column-gap: 5%;
   row-gap: 5%;
+  justify-content: center;
 }
 
 .grid-item-text{
@@ -169,7 +170,7 @@ li {
       grid-template-columns: auto;
       row-gap: 10px;
       grid-template-rows: auto auto auto auto;
-      
+      justify-content: center;
   }
 }
 
