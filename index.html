@@ -111,7 +111,7 @@ document.getElementById("reservationForm").addEventListener("submit", function(e
   
   if (Disponible(date, time, guests)) {
     hacerReserva(name, date, time, guests);
-    document.getElementById("message").innerText = "¡Reserva exitosa, " + name + "!";
+    document.getElementById("message").innerText = name+", Su reserva ha sido exitosa!";
   } else {
     document.getElementById("message").innerText =(name+" Lo siento, no hay disponibilidad el "+date+ " a las "+time+" para "+guests+" personas.");
   }
