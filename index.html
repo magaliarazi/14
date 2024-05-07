@@ -11,15 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="menu">
-        <li><a href="index1.html">Reservas</a></li>
-        <li><a href="index2.html">Menu</a></li>
-        <li><a href="index3.html">Cómo Llegar</a></li>
-        <li><a href="index4.html">Sobre Nosotros</a></li>
-        <li><a href="index5.html">Producción</a></li>
+        <li><a href="#Reservas">Reservas</a></li>
+        <li><a href="#Menu">Menu</a></li>
+        <li><a href="#ComoLlegar">Cómo Llegar</a></li>
+        <li><a href="#Produccion">Producción</a></li>
     </div>
     <div class="header">
         <h1>Épico<br>Cafe</h1>
@@ -42,10 +41,143 @@
         <div class="columna"><h3>Nuestro Grano </h3>Al dar un sorbo a una taza de nuestro café, te invitamos a experimentar sabores únicos y complejos. Desde los matices frutales y florales hasta los sutiles toques de cacao, cada taza es una celebración de la diversidad y belleza de nuestra tierra.</div>
         <div class="columna"><h3>Eventos</h3>Te invitamos a celebrar tu festejo. Dejanos ayudarte a formar los mas lindos recuerdos.</div>
     </div>
-        
-        
+
+    <main>
+        <section id="Reservas">
+            <h5>Reserva de Restaurante</h5>
+  <form id="reservationForm">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" required><br><br>
     
+    <label for="date">Día:</label>
+    <input type="date" id="date" required><br><br>
+    
+    <label for="time">Horario:</label>
+    <input type="time" id="time" required><br><br>
+    
+    <label for="guests">Cantidad de comensales:</label>
+    <input type="number" id="guests" min="1" required><br><br>
+    
+    <button type="submit">Reservar</button>
+  </form>
+
+  <p id="message"></p>
+  <p id="horariomas"></p>
+
+  <script>
+let reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+
+function guardarReserva() {
+  localStorage.setItem('reservations', JSON.stringify(reservations));
+}
+
+function hacerReserva(name, date, time, guests) {
+  reservations.push({name: name, date: date, time: time, guests: guests});
+  guardarReserva(); 
+
+const horaMasConcurrida = calcularHorarioMasConcurrido(reservations);
+if (horaMasConcurrida !== null) {
+  document.getElementById("horariomas").innerText = ("El horario más concurrido es: " + horaMasConcurrida+ "hs.");
+} else {
+  document.getElementById("horariomas").innerText =("No hay reservas realizadas aún.");
+}
+}
+
+function calcularHorarioMasConcurrido(reservas) {
+  const horarios = {};
+  reservas.forEach(reserva => {
+    const hora = reserva.time
+    horarios[hora] = (horarios[hora] || 0) + 1;
+  });
+  
+  let horaMasConcurrida = null;
+  let maxReservas = 0;
+  for (const hora in horarios) {
+    if (horarios[hora] > maxReservas) {
+      maxReservas = horarios[hora];
+      horaMasConcurrida = hora;
+    }
+  }
+  return horaMasConcurrida;
+}
+
+document.getElementById("reservationForm").addEventListener("submit", function(event) {
+  event.preventDefault(); 
+  
+  let name = document.getElementById("name").value;
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+  let guests = parseInt(document.getElementById("guests").value);
+  
+  if (Disponible(date, time, guests)) {
+    hacerReserva(name, date, time, guests);
+    document.getElementById("message").innerText = "¡Reserva exitosa, " + name + "!";
+  } else {
+    document.getElementById("message").innerText =(name+" Lo siento, no hay disponibilidad el "+date+ " a las "+time+" para "+guests+" personas.");
+  }
+});
+
+function Disponible(date, time, guests) {
+  for (let i = 0; i < reservations.length; i++) {
+    if (reservations[i].date === date && reservations[i].time === time && reservations[i].guests === guests) {
+      return false; 
+    }
+  }
+  return true;
+}
 
 
+  </script>
+            
+        </section>
+        <section id="Menu">
+            <h5>Menú</h5>
+            <ul> 
+                <h6>Café</h6>
+                <li>Expresso ------- $2000</li>
+                <li>Latte ------- $2500</li>
+                <li>Flat Withe ------- $3000</li>
+                <li>Capuccino ------- $3000</li>
+                <li>Americano ------- $2000</li>
+                <li>Mocha ------- $3000</li>
+                <h6>Té</h6>
+                <li>Té Negro ------- $2000</li>
+                <li>Té Verde ------- $2000</li>
+                <li>Té Chai ------- $2000</li>
+                <li>Té de Hierbas ------- $2000</li>
+                <h6>Comida</h6>
+                <li>Medialuna ------- $1500</li>
+                <li>Roll de Canela ------- $3500</li>
+                <li>Scon de Queso ------- $3000</li>
+                <li>Chipá ------- $2000</li>
+                <li>Budín de Naranja ------- $3000</li>
+                <li>Bundín de Peras ------- $3000</li>
+            </ul>
+        </section>
+        <section id="ComoLlegar">
+            <h5>Cómo Llegar</h5>
+            <img src="images\Captura de pantalla 2024-05-02 171048.png" width="500" height="400">
+        </section>
+        <section id="Produccion">
+            <h5>Producción</h5>
+            <h6>La producción de café comienza con la siembra y el cultivo de los árboles de café, que son originarios de las regiones 
+                tropicales y subtropicales del mundo. Los principales tipos de árboles de café son el Arábica y el Robusta. 
+                Estos árboles requieren condiciones específicas de temperatura, altitud, suelo y humedad para crecer y producir frutos de calidad. Los agricultores 
+                cuidan de los árboles durante todo el año, asegurándose de que reciban la cantidad adecuada de agua, luz solar y nutrientes. 
+                <br><br>La cosecha del café es un momento crucial en el proceso de producción. Los frutos del café, conocidos como "cerezas", maduran en diferentes momentos 
+                del año dependiendo de la región y la variedad. Los agricultores recogen las cerezas maduras a mano o mediante máquinas especializadas. 
+                Después de la cosecha, las cerezas pasan por un proceso de procesamiento para extraer los granos de café. Nosotros utilizamos el 
+                Proceso húmedo (lavado): Las cerezas se sumergen en agua para eliminar la pulpa y la piel antes de secar los granos.
+                <br><br>Después del procesamiento, los granos de café pasan por un proceso de beneficio para eliminar cualquier impureza y
+                 clasificar los granos según su tamaño y calidad. Luego, los granos se tuestan para desarrollar su sabor característico. 
+                 El tostado es un arte en sí mismo, donde los granos se calientan a altas temperaturas para transformar sus sabores y aromas. 
+                 El proceso de tostado puede variar desde tostados claros hasta oscuros, cada uno con perfiles de sabor únicos.
+                <br><br>Una vez tostados, los granos de café se muelen en diferentes tamaños dependiendo del método de preparación. Los granos molidos se utilizan 
+                para hacer café mediante un métodos de  preparación por goteo, la prensa francesa, el espresso. Cada método de preparación 
+                resalta diferentes aspectos del sabor y aroma del café, lo que permite a los amantes del café disfrutar de una amplia variedad de experiencias 
+                sensoriales.</h6>
+        </section>
+    </main>
 </body>
+
 </html>
