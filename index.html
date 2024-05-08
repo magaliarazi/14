@@ -76,11 +76,12 @@ function hacerReserva(name, date, time, guests) {
   guardarReserva(); 
 
 const horaMasConcurrida = calcularHorarioMasConcurrido(reservations);
-if (horaMasConcurrida !== null) {
-  document.getElementById("horariomas").innerText = ("El horario más concurrido es: " + horaMasConcurrida+ "hs.");
-} else {
-  document.getElementById("horariomas").innerText =("No hay reservas realizadas aún.");
-}
+// lo calculo pero no se lo quiero mostrar al usuario. En caso de querer mostrarlo el código es el siguiente, sirve para ver si funciona.
+//if (horaMasConcurrida !== null) {
+//document.getElementById("horariomas").innerText = ("El horario más concurrido es: " + horaMasConcurrida+ "hs.");
+//} else {
+//  document.getElementById("horariomas").innerText =("No hay reservas realizadas aún.");
+//}
 }
 
 function calcularHorarioMasConcurrido(reservas) {
