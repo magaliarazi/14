@@ -29,6 +29,9 @@ body {
   text-align: center;
   font-size: 25 px;
 }
+.menu li:last-child {
+  float: right;
+}
 .menu li a:hover{
     color: #B23520;
     background-color: #B8CCEC;
@@ -114,7 +117,7 @@ li {
   
   display: flex;
   overflow: hidden;
-  flex-wrap: wrap;
+  flex-wrap: nwrap;
   align-items: center ;
   background-color: #d0b06b;
   width: 100%;
@@ -223,3 +226,27 @@ p{
   width: 100%;
   margin-left:5%
 }
+
+.product, .cart-item {
+  border: 1px solid #d0b06b;
+  padding: 10px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  color:#d0b06b;
+  font-family: "Indie Flower";
+  margin: 2%;
+  display: block;
+}
+h7{
+  letter-spacing: 1px;
+  font-size: 20px;
+  color:#d0b06b;
+  font-family: "Indie Flower";
+}
+p{
+  letter-spacing: 1px;
+  font-size: 20px;
+  color:#d0b06b;
+  font-family: "Indie Flower";
+}
+

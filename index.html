@@ -19,6 +19,8 @@
         <li><a href="#Menu">Menu</a></li>
         <li><a href="#ComoLlegar">Cómo Llegar</a></li>
         <li><a href="#Produccion">Producción</a></li>
+        <li><a href="#NuestrosProductos">NuestrosProductos</a></li>
+        <li><a href="#CarritoDeCompras">CarritoDeCompras</a></li>
     </div>
     <div class="header">
         <h1>Épico<br>Cafe</h1>
@@ -177,6 +179,53 @@ function Disponible(date, time, guests) {
                 para hacer café mediante un métodos de  preparación por goteo, la prensa francesa, el espresso. Cada método de preparación 
                 resalta diferentes aspectos del sabor y aroma del café, lo que permite a los amantes del café disfrutar de una amplia variedad de experiencias 
                 sensoriales.</h6>
+        </section>
+        <section>
+          <script src="script.js"></script>
+          <div id="NuestrosProductos">
+          <h5>Nuestros Productos</h5>
+          <ul>
+            <div class="product" data-id="1" data-name="Lavazza Super Crema" data-price="5000">
+              <li>Lavazza Super Crema------- $5000</li>
+              <input type="number" id="quantity-1" value="1" min="1">
+              <button onclick="addToCart(1)">Añadir al carrito</button>
+            </div>
+            <div class="product" data-id="2" data-name="Blue Bottle Coffee" data-price="6000">
+              <li>Blue Bottle Coffee------- $6000</li>
+              <input type="number" id="quantity-2" value="1" min="1">
+              <button onclick="addToCart(2)">Añadir al carrito</button>
+            </div>
+            <div class="product" data-id="3" data-name="Death Wish Coffee" data-price="5500">
+              <li>Death Wish Coffee------- $5500</li>
+              <input type="number" id="quantity-3" value="1" min="1">
+              <button onclick="addToCart(3)">Añadir al carrito</button>
+            </div>
+            <div class="product" data-id="4" data-name="Kicking Horse Coffee" data-price="7000">
+              <li>Kicking Horse Coffee------- $7000</li>
+              <input type="number" id="quantity-4" value="1" min="1">
+              <button onclick="addToCart(4)">Añadir al carrito</button>
+            </div>
+            <div class="product" data-id="5" data-name="Peet's Coffee Major Dickason's Blend" data-price="5000">
+              <li>Peet's Coffee Major Dickason's Blend------- $5000</li>
+              <input type="number" id="quantity-5" value="1" min="1">
+              <button onclick="addToCart(5)">Añadir al carrito</button>
+            </div>
+            <div class="product" data-id="6" data-name="Stumptown Coffee Roasters" data-price="5500">
+              <li>Stumptown Coffee Roasters------- $5500</li>
+              <input type="number" id="quantity-6" value="1" min="1">
+              <button onclick="addToCart(6)">Añadir al carrito</button>
+            </div>
+          </ul>
+        </div>
+        </section>
+        <section id="CarritoDeCompras">
+        <h5>Carrito de Compras</h5>
+        <div id="cart">
+        <h6>El carrito está vacío.</h6>
+        </div>
+        <div id="total">
+          <p>Total de la Compra: $0.00</p>
+        </div>
         </section>
     </main>
 </body>
