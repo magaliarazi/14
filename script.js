@@ -62,7 +62,7 @@ function removeFromCart(productId) {
 
 function updateTotal(totalPrice) {
     const totalElement = document.getElementById('total');
-    totalElement.innerHTML = `<p>Total de la Compra: $${totalPrice}<p>`;
+    totalElement.innerHTML = `<p>Total de la Compra: $${totalPrice}</p>`;
 }
 
 function saveCartToLocalStorage() {
@@ -74,4 +74,18 @@ function loadCartFromLocalStorage() {
     if (savedCart) {
         cart = JSON.parse(savedCart);
     }
+}
+
+function comprar() {
+    if (cart.length === 0) {
+        alert('El carrito está vacío. Añade productos antes de comprar.');
+        return;
+    }
+
+    // Aquí puedes agregar lógica adicional para procesar el pago y realizar la compra.
+
+    alert('Compra realizada con éxito!');
+    cart = []; // Vaciar el carrito
+    saveCartToLocalStorage(); // Asegurar que el carrito vacío se guarda en localStorage
+    updateCart();
 }

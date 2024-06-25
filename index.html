@@ -219,13 +219,14 @@ function Disponible(date, time, guests) {
         </div>
         </section>
         <section id="CarritoDeCompras">
-        <h5>Carrito de Compras</h5>
+          <h5>Carrito de Compras</h5>
         <div id="cart">
-        <h6>El carrito está vacío.</h6>
+          <h6>El carrito está vacío.</h6>
         </div>
         <div id="total">
-          <p>Total de la Compra: $0.00</p>
+          <p>Total de la Compra: $ <span id="totalAmount">0.00</span></p>
         </div>
+        <button id="comprar" onclick="comprar()">Comprar</button>
         </section>
     </main>
 </body>

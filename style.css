@@ -250,3 +250,23 @@ p{
   font-family: "Indie Flower";
 }
 
+button {
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-family: "Indie Flower";
+  padding: 5px 10px;
+  background-color: #d0b06b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #B23520;
+}
+
+#comprar{
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
